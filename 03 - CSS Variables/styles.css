@@ -18,3 +18,21 @@ body {
 input {
   width:100px;
 }
+
+/* 定義 CSS 變數 */
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
+}
+
+/* 使用 CSS 變數值為屬性值 */
+img {
+  padding: var(--spacing);
+  background-color: var(--base);
+  filter: blur(var(--blur));
+}
+
+.hl {
+  color: var(--base);
+}
