@@ -59,7 +59,42 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
   <script>
+  function playAudio(event) {
+    // 取得按鍵代碼
+    const { keyCode } = event;
+    // 取得對應鼓面
+    const key = document.querySelector(`.key[data-key="${keyCode}"]`);
 
+    // 沒有對應鼓面，則忽略不看
+    if (!key) return;
+
+    // 加入樂器按鈕放大加框效果
+    key.classList.add("playing");
+
+    // 取得對應 audio 元素
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+
+    // 重複按鍵則立即重頭播放
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  function stopPlaying(event) {
+    // 同時會有多個 property 完成 transition 效果
+    if (event.propertyName !== 'box-shadow') return;
+
+    // 最後一個完成後，才移除 playing 狀態
+    this.classList.remove('playing');
+  }
+  </script>
+
+  <script>
+  // 監控鍵盤事件，播放打擊聲
+  window.addEventListener('keydown', playAudio);
+
+  // 監控 transition 結束，恢復樂器按鈕顯示
+  const keys = document.querySelectorAll(`.key`);
+  keys.forEach(key => key.addEventListener('transitionend', stopPlaying));
   </script>
 </body>
 </html>
