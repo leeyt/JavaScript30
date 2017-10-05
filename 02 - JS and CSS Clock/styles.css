@@ -71,7 +71,6 @@ body {
     2px 5px 1px rgba(0, 0, 0, 0.5);
 
   transform-origin: 100%;
-  transition-timing-function: cubic-bezier(0.69, 0.53, 1, 2.06);
 }
 
 /* 時針 */
@@ -109,4 +108,5 @@ body {
   border-top-left-radius: 100%;
 
   transition: all .05s;
+  transition-timing-function: cubic-bezier(0.69, 0.53, 1, 2.06);
 }
