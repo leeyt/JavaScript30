@@ -1,15 +1,25 @@
-
 ![](https://javascript30.com/images/JS3-social-share.png)
 
-# JavaScript30
+# JavaScript30 - 30 天挑戰純 JavaScript 開發
 
-Starter Files + Completed solutions for the JavaScript 30 Day Challenge.
+創建日期：2017-10-05
+最後更新：2017-10-05
 
-Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
+> 線上課程：[JavaScript30](https://javascript30.com)
+> 課程講師：[Wes Bos](https://github.com/wesbos)
+> 課程源碼：[
 
-## Community #JavaScript30 Content
+## JavaScript30 課程簡介
 
-Feel free to submit a PR adding a link to your own recaps, guides or reviews!
+JavaScript30 是 Wes Bos 推出的一個免費線上視訊課程，提供了 30 個程式挑戰，並且會在視訊中示範解法。
+這些程式挑戰皆可使用純 JavaScript 手法解決，不需要借助框架和程式庫。
+
+[官網](https://javascript30.com] 的標語如下：
+
+> BUILD **30** things in **30** DAYS WITH **30** TUTORIALS
+> **NO** FRAMEWORKS x **NO** COMPILERS x **NO** LIBRARIES x **NO** BOILERPLATE
+
+## 社群 #JavaScript30 內容
 
 * [Arjun Khode’s blog](http://thesagittariusme.blogspot.com/search/label/JS30) about summaries for each day, including fixed glitches, bugs and extra features
 * [Nitish Dayal's Text Guides](https://github.com/nitishdayal/JavaScript30) are great for those who like reading over watching
@@ -31,11 +41,3 @@ Feel free to submit a PR adding a link to your own recaps, guides or reviews!
 * [Usmaan Ali's](https://github.com/usyyy/javascript/blob/master/JavaScript30/analysis.md) summary of the technical skills learned from each project. He's also posting them as separate blog posts [here](https://medium.com/@usyyy)
 * [Axel](https://github.com/afuh/js30)'s lessons learned and a [showcase](https://afuh.github.io/js30/) with the projects. 
 * [Chris](https://github.com/dwatow/JavaScript30) 中文實戰，目標描述、過程紀錄。
-
-## A note on Pull Requests
-
-These are meant to be 1:1 copies of what is done in the video. If you found a better / different way to do things, great, but I will be keeping them the same as the videos.
-
-The starter files + solutions will be updated if/when the videos are updated.
-
-Thanks!
