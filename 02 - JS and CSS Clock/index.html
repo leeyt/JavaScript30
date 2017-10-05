@@ -19,7 +19,43 @@
   </div>
 
   <script>
+  // 取得三個指針
+  const hourHand = document.querySelector('.hour-hand');
+  const minuteHand = document.querySelector('.min-hand');
+  const secondHand = document.querySelector('.second-hand');
 
+  // 記錄指針角度
+  let [ hourDegree, minuteDegree, secondDegree ] = [ 0, 0, 0 ];
+
+  // 載入時，更新指針角度至目前時間
+  function initClock() {
+    const now = new Date();
+    ([ hourDegree, minuteDegree, secondDegree] = degrees(now));
+  }
+
+  // 每秒鐘更新一次指針角度
+  function updateHands() {
+    secondDegree += (1 / 60) * 360;
+    minuteDegree += (1 / 60 / 60) * 360;
+    hourDegree += (1 / 60 / 60 / 12) * 360;
+
+    secondHand.style.transform = `rotate(${secondDegree}deg)`;
+    minuteHand.style.transform = `rotate(${minuteDegree}deg)`;
+    hourHand.style.transform = `rotate(${hourDegree}deg)`;
+  }
+
+  // 將時間轉換成指針角度
+  function degrees(time) {
+    const second = time.getSeconds();
+    const minute = time.getMinutes() + second / 60;
+    const hour = time.getHours() % 12 + minute / 60;
+
+    return [ 30 * hour, 6 * minute, 6 * second]
+      .map(degree => degree + 90);
+  }
+
+  initClock();
+  setInterval(updateHands, 1000);
   </script>
 </body>
 </html>
