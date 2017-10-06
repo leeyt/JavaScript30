@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
@@ -14,9 +13,43 @@
       <li>or a state</li>
     </ul>
   </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+  <script>
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-</script>
-  </body>
+  const places = [];
+
+  fetch(endpoint, { method: 'GET' })
+    .then(response => response.json())
+    .then(json => places.push(...json));
+
+  function findMatches(keyword, places) {
+    return places.filter(place => {
+      const regex = new RegExp(keyword, 'gi');
+      return place.city.match(regex) || place.state.match(regex);
+    });
+  }
+
+  function displayMatches() {
+    const keyword = this.value;
+    const matches = findMatches(keyword, places);
+    const html = matches.map(place => {
+      const regex = new RegExp(keyword, 'gi');
+      const city = place.city.replace(regex, `<span class="hl">${keyword}</span>`);
+      const state = place.state.replace(regex, `<span class="hl">${keyword}</span>`);
+      return `
+        <li>
+          <span class="name">${city}, ${state}</span>
+          <span class="population">${place.population}</span>
+        </li>
+      `;
+    }).join('');
+    suggestions.innerHTML = html;
+  }
+
+  const searchInput = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
+  searchInput.addEventListener('input', displayMatches);
+  </script>
+</body>
 </html>
